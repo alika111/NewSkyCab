@@ -181,7 +181,7 @@
 
 .about-us-image {
   position: relative;
-  background: url('images/whoweare.jpeg') no-repeat center center;
+  background: url('../images/whoweare.jpeg') no-repeat center center;
   background-size: cover;
   height: 85vh; /* 75% სიმაღლე ეკრანის მთლიან სიმაღლეზე */
   width: 100%;
