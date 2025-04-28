@@ -1,0 +1,438 @@
+  @font-face {
+    font-family: 'lgv-tavdrigina';
+    src: url('../fonts/lgv-tavdrigina.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'alkroundedmtav-medium';
+    src: url('../fonts/alkroundedmtav-medium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* .section-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+
+.offer-title {
+  width: 100%;
+  max-width: 540px; 
+  font-size: 40px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+  margin-top: 40px;
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+
+.two-columns-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.two-columns-section .column {
+  flex: 0 0 540px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.two-columns-section .column img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.two-columns-section .column h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.two-columns-section .column p {
+  font-size: 16px;
+  color: #555;
+}
+.ambulance-section{
+  background-color: #BE3337 !important;
+}
+
+
+@media (max-width: 768px) {
+  .two-columns-section {
+    justify-content: center;
+  }
+
+  .two-columns-section .column {
+    flex: 0 0 100%;
+    max-width: 500px;
+  }
+
+  .offer-title {
+    max-width: 100%;
+    text-align: center;
+      font-size: 40px;
+    margin-top: 20px;
+    padding-top: 40px;
+    font-family: 'alkroundedmtav-medium', sans-serif;
+  }
+} */
+.aviation-services-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+
+.aviation-services {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+  color: white;
+}
+
+.service-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px 12px 0 0; /* თუ ზევით არის სურათი */
+}
+
+.text-content {
+  padding: 20px;
+}
+
+.service-card.red {
+  background-color: #cc2e2e;
+}
+
+.service-card.dark {
+  background-color: #4a4a4a;
+}
+
+.service-card.gray {
+  background-color: #8c8c8c;
+}
+
+.service-card.brown {
+  background-color: #5b3630;
+}
+
+.service-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Special layout depending on image position */
+.top-image img {
+  order: -1;
+}
+
+.bottom-image img {
+  border-radius: 0 0 12px 12px;
+}
+.section-title {
+  grid-column: 1 / -1; /* რომ სათაურმა ორივე სვეტზე გაიშალოს */
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+
+/*ჩვენ შესახებ*/
+.about-us-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+
+.about-us-title {
+  font-size: 32px;
+  text-align: right;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+  padding: 20px 40px;
+}
+
+.about-us-image {
+  position: relative;
+  background: url('/images/whoweare.jpeg') no-repeat center center;
+  background-size: cover;
+  height: 85vh; /* 75% სიმაღლე ეკრანის მთლიან სიმაღლეზე */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.about-us-gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.about-us-content {
+  color: white;
+  max-width: 800px;
+  padding: 40px;
+  text-align: right;
+  font-size: 18px;
+  line-height: 1;
+}
+.about-us-content p{
+  margin-bottom: 20px;  /* ანაზღაურება პარაგრაფებს შორის */
+}
+@media (max-width: 768px) {
+  .about-us-content {
+    max-width: 90%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .about-us-title {
+    text-align: center;
+  }
+
+  .about-us-gradient {
+    justify-content: center;
+  }
+
+  .about-us-content {
+    text-align: center;
+  }
+}
+
+/*კონტაქტი*/
+
+.newsletter-signup-container {
+	font-family: sans-serif;
+	color: #fff;
+	background-color: #808080;
+	padding: 40px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+}
+
+.newsletter-signup-left {
+	flex: 1;
+}
+
+.newsletter-signup-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.newsletter-input-group {
+	margin-bottom: 20px;
+}
+
+.newsletter-input-label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.newsletter-input {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 1px solid #fff;
+	background-color: transparent;
+	color: #fff;
+}
+
+.newsletter-submit-button {
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+.newsletter-contact-info {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.newsletter-contact-link {
+	color: #fff;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	color: inherit !important;
+	/* Keeps the original color */
+	background: none !important;
+	/* Prevents background change */
+}
+
+.newsletter-contact-link span {
+	margin-right: 5px;
+}
+
+
+.contact-wrapper {
+  display: flex;
+	background-color: #808080;
+  padding: 40px;
+  gap: 40px;
+}
+
+/* 1. მშობელი დივი ფლექსბოქსად, ცენტრირება ორთავ გზაზე */
+.contact-column.first {
+  display: flex;
+  justify-content: center; /* ვერტიკალურად შუაში */
+  align-items: center;     /* ჰორიზონტალურად შუაში */
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+
+/* 2. შიდა კონტეინერი, რომელიც ცენტრშია, ტექსტი კი მარცხნივ იწყება */
+.centered-text {
+  text-align: left;
+}
+
+/* 3. მულტილაინ სათაური და პატარა ტექსტი */
+.multi-line-title span {
+  display: block;
+  margin: 0;
+  line-height: 1.2;
+  font-size: 44px;
+  color: white;
+}
+
+.small-text {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 22px;
+  color: white;
+}
+.contact-column {
+  flex: 1;
+}
+
+.contact-column h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+
+.contact-info {
+  margin-top: 30px;
+  color: #ffffff; /* White text color */
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  font-family: 'alkroundedmtav-medium', sans-serif;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Space between contact items */
+  margin-bottom: 10px; /* Space below items on wrap */
+}
+.contact-item svg {
+  margin-right: 5px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  position: relative; /* For positioning the arrow */
+}
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #ffffff; /* White underline */
+  background-color: transparent; /* Transparent background */
+  color: #ffffff; /* White text color */
+  outline: none;
+  font-size: 1rem;
+}
+.input-field::placeholder {
+  font-family: 'alkroundedmtav-medium', sans-serif;
+  color: white; /* Lighter color for placeholder */
+}
+
+.arrow-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff; /* White arrow color */
+  font-size: 1.2rem;
+  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-column {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+  }
+}

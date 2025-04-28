@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Sticky menu style */
+        .sticky-menu {
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        section {
+            padding: 50px 20px;
+            min-height: 100vh;
+        }
+
+        .menu-item {
+            font-family: 'alkroundedmtav-medium', sans-serif;
+        }
+
+        #hamburger.active .line:nth-child(1) {
+            transform: rotate(45deg) translateY(14px);
+        }
+
+        #hamburger.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        #hamburger.active .line:nth-child(3) {
+            transform: rotate(-45deg) translateY(-14px);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="relative w-full h-[70vh] md:h-screen">
+        <div id="slider-header" class="relative w-full h-[60vh] bg-cover bg-top md:h-[75vh] md:bg-center"
+            style="background-image: url('images/X2.jpg');">
+            <div class="absolute inset-0 bg-black/50"></div>
+
+            <!-- Navigation Menu -->
+            <nav id="navbar"
+                class="fixed top-0 left-0 w-full z-50 p-6 flex items-center justify-between transition-all duration-300">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <!-- Desktop logo -->
+                    <img src="images/skycabwhitenew.png" alt="Logo" class="h-8 w-auto hidden md:block" />
+
+                    <!-- Mobile logo -->
+                    <img src="images/skycabwhitelogomobile.png" alt="Mobile Logo" class="h-8 w-32 block md:hidden" />
+                </div>
+
+                <!-- Desktop menu -->
+                <ul
+                    class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-10 text-white text-lg font-light">
+                    <li><a id="menu_home" href="#slider-header" class="scroll-link menu-item">მთავარი</a></li>
+                    <li><a href="#services" class="scroll-link menu-item">რას გთავაზობთ</a></li>
+                    <li><a href="#aboutussection" class="scroll-link menu-item">ჩვენ შესახებ</a></li>
+                    <li><a href="#contact" class="scroll-link menu-item">კონტაქტი</a></li>
+                </ul>
+
+                <!-- Language Selector -->
+                <div class="relative">
+                    <button id="languageButton" class="flex items-center space-x-1">
+                        <img id="currentFlag" src="https://flagcdn.com/w40/ge.png" alt="KA"
+                            class="w-8 h-5 rounded-lg object-cover" />
+                        <svg class="w-4 h-4 fill-white" viewBox="0 0 20 20">
+                            <path d="M5.5 7l4.5 4.5L14.5 7z" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div id="languageMenu" class="hidden absolute mt-2 w-16 bg-white rounded-md shadow-lg py-2">
+                        <button onclick="changeLanguage('ka')"
+                            class="flex items-center justify-center w-full px-2 py-2 hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/ge.png" alt="KA"
+                                class="w-8 h-5 rounded-lg object-cover" />
+                        </button>
+                        <button onclick="changeLanguage('en')"
+                            class="flex items-center justify-center w-full px-2 py-2 hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="EN"
+                                class="w-8 h-5 rounded-lg object-cover" />
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Hamburger icon (mobile) -->
+                <button id="hamburger" class="flex flex-col justify-between w-8 h-6 focus:outline-none z-50 md:hidden">
+                    <span class="line block h-1 w-8 bg-white transition-transform duration-300 ease-in-out"></span>
+                    <span class="line block h-1 w-8 bg-white transition-opacity duration-300 ease-in-out"></span>
+                    <span class="line block h-1 w-8 bg-white transition-transform duration-300 ease-in-out"></span>
+                </button>
+
+                <!-- Mobile menu -->
+                <ul id="mobile-menu"
+                    class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg flex flex-col space-y-4 py-4 px-6">
+                    <li><a href="#slider-header" class="scroll-link block text-black text-lg font-medium">მთავარი</a>
+                    </li>
+                    <li><a href="#services" class="scroll-link block text-black text-lg font-medium">რას გთავაზობთ</a>
+                    </li>
+                    <li><a href="#aboutussection" class="scroll-link block text-black text-lg font-medium">ჩვენ
+                            შესახებ</a></li>
+                    <li><a href="#contact" class="scroll-link block text-black text-lg font-medium">კონტაქტი</a></li>
+                </ul>
+            </nav>
+
+            <div class="relative z-10 flex flex-col items-center justify-end text-center h-full text-white px-4 pb-10">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-black"
+                    style="font-family: 'lgv-tavdrigina', sans-serif;">
+                    შენი გზამკვლევი
+                </h1>
+            </div>
+        </div>
+        <div class="relative w-full bg-cover bg-center">
+            <div
+                class="relative z-10 flex flex-col items-center justify-start text-center h-1/5 text-white px-4 pt-10 bg-white">
+                <div class="flex items-center space-x-2">
+                    <h2 class="text-5xl md:text-7xl font-bold text-red-500"
+                        style="font-family: 'alkroundedmtav-medium', sans-serif;">
+                        ავიაციაში
+                    </h2>
+                    <span class="text-base md:text-lg text-black"
+                        style="font-family: 'alkroundedmtav-medium', sans-serif;">
+                        ლოკალური ფრენები, გლობალური კავშირები
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content sections -->
+    <!-- <h2 class="text-4xl font-bold mb-4">რას გთავაზობთ</h2> -->
+    <!-- Common wrapper -->
+    <!-- <div class="section-wrapper">
+
+
+    <div class="offer-title">
+      რას გთავაზობთ
+    </div>
+  
+
+    <section class="two-columns-section">
+      <div class="column ambulance-section">
+        <h3 id="air_amublance_h_text" class="airAmublaneserviceHeader">Air Ambulance</span>
+        </h3>
+        <p id="air_amublancetext_1" style="color: white;">When every second counts, we
+            ensure fast,
+            safe, and reliable patient transport to hospitals across Turkey and Europe -
+            anytime,
+            anywhere.</p>
+        <p id="air_amublancetext_2" style="color: white;">Our services are available 24/7 to
+            provide
+            emergency
+            medical transport whenever you need it most.</p>
+        <a id="air_amublancetext_see_more_link" href="#" class="ambulance-link"
+            style="color: black; font-size: 13px; text-decoration:none">See More</a>
+
+        <img src="images/AirAmbulance.jpg" alt="Image 1" />
+      </div>
+      <div class="column">
+        <img src="images/ChooseYourAircraft.jpg" alt="Image 2" />
+        <h2>Header 2</h2>
+        <p>Description for column 2.</p>
+      </div>
+      <div class="column">
+        <img src="images/LearnToFly.jpg" alt="Image 3" />
+        <h2>Header 3</h2>
+        <p>Description for column 3.</p>
+      </div>
+      <div class="column">
+        <img src="images/AviationConsultation.jpg" alt="Image 4" />
+        <h2>Header 4</h2>
+        <p>Description for column 4.</p>
+      </div>
+      <div class="column">
+        <img src="images/CharterYourAircraft.jpg" alt="Image 5" />
+        <h2>Header 5</h2>
+        <p>Description for column 5.</p>
+      </div>
+      <div class="column">
+        <img src="images/AviationWork.jpg" alt="Image 6" />
+        <h2>Header 6</h2>
+        <p>Description for column 6.</p>
+      </div>
+    </section>
+  
+</div> -->
+
+    <div class="aviation-services-wrapper" id="services">
+        <div class="aviation-services">
+            <h2 class="section-title">რას გთავაზობთ</h2>
+            <div class="service-card red bottom-image">
+                <img src="images/AirAmbulance.jpg" alt="Medical Air Transport">
+                <div class="text-content">
+                    <h2>სასწრაფო სამედიცინო დახმარება</h2>
+                    <p>რომელიც სერვისს ითვალისწინებს პაციენტების სამედიცინო ტრანსპორტირებას კერძო თვითმფრინავით...</p>
+                </div>
+            </div>
+
+            <div class="service-card red top-image">
+                <img src="images/ChooseYourAircraft.jpg" alt="Flight Training">
+                <div class="text-content">
+                    <h2>გვენ საფრენი სკოლა</h2>
+                    <p>ჩვენ ვატარებთ საწყის საფრენ კურსებს...</p>
+                </div>
+            </div>
+
+            <div class="service-card dark top-image">
+                <img src="images/LearnToFly.jpg" alt="Flight Training">
+                <div class="text-content">
+                    <h2>ისწავლეთ ფრენა</h2>
+                    <p>გსურთ გახდეთ პროფესიონალი პილოტი?...</p>
+                </div>
+            </div>
+
+            <div class="service-card gray top-image">
+                <img src="images/AviationConsultation.jpg" alt="Consultation">
+                <div class="text-content">
+                    <h2>სავაჭრო კონსულტაცია</h2>
+                    <p>ჩვენი ექსპერტები დაგეხმარებიან აერონავტიკის შესყიდვებში...</p>
+                </div>
+            </div>
+
+            <div class="service-card brown bottom-image">
+                <div class="text-content">
+                    <h2>იმუშავეთ ჩვენთან ერთად</h2>
+                    <p>გსურთ შეერთდეთ ჩვენს ეკიპაჟს და ისწავლოთ მსოფლიოს წამყვან ავიაკომპანიებში მუშაობისთვის?</p>
+                </div>
+                <img src="images/CharterYourAircraft.jpg" alt="Work With Us">
+            </div>
+
+            <div class="service-card gray top-image">
+                <div class="text-content">
+                    <h2>სასწრაფო სამაშველო</h2>
+                    <p>სასწრაფო სამაშველო ოპერაციები, SAR...</p>
+                </div>
+                <img src="images/AviationWork.jpg" alt="Search and Rescue">
+            </div>
+        </div>
+    </div>
+
+    <div class="about-us-wrapper" id="aboutussection">
+        <h2 class="about-us-title">ჩვენ შესახებ</h2>
+        <div class="about-us-image">
+            <div class="about-us-gradient">
+                <div class="about-us-content">
+                    <p>ჩვენი გუნდი შედგება ავიაციის პროფესიონალებისგან, რომლებსაც ფრენისადმი დიდი გატაცება და
+                        სრულყოფილებისკენ სწრაფვა აერთიანებთ. მრავალწლიანი გამოცდილებით, ჩვენ ვცდილობთ შემოგთავაზოთ
+                        უმაღლესი დონის მომსახურება ჩვენი კლიენტების მრავალფეროვანი საჭიროებების დასაკმაყოფილებლად.</p>
+                    <p>"ადგილობრივი ფრენები, გლობალური კავშირები" — ეს არა მხოლოდ ჩვენი დევიზია, არამედ ფილოსოფია,
+                        რომელიც ჩვენი ყველა საქმიანობის საფუძველია. ჩვენ ვაკავშირებთ ავიატორებს მთელ მსოფლიოში ჩვენი
+                        ფართო პარტნიორული ქსელის მეშვეობით, რაც საშუალებას გვაძლევს, შევთავაზოთ გადაწყვეტილებები,
+                        რომლებიც ზუსტად შეესაბამება თითოეული კლიენტის მოთხოვნებს.</p>
+                    <p>იქნება ეს საჰაერო სასწრაფო დახმარება, ჩარტერული ფრენები, საფრენი აპარატების გაყიდვა, ფრენის
+                        სწავლება თუ საავიაციო კონსულტაცია — ჩვენ გვაქვს გამოცდილება და გლობალური კავშირები, რათა
+                        დავაკმაყოფილოთ თქვენი საჭიროებები.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 10vh;"></div>
+
+    <!-- <div id="contact">
+        <div class="newsletter-signup-container">
+            <div class="newsletter-signup-left">
+                <h2 id="contact_h_text" style="color: white !important;">Signup for the newsletter</h2>
+                <p id="contact_text_1" style="color: white !important;">Stay connected</p>
+            </div>
+            <div class="newsletter-signup-right">
+                <div class="newsletter-input-group">
+                    <label id="contact_subject" for="subject" class="newsletter-input-label">Subject</label>
+                    <input type="text" id="subject" name="subject" class="newsletter-input">
+                </div>
+                <div class="newsletter-input-group">
+                    <label id="contact_message" for="message" class="newsletter-input-label">Message</label>
+                    <input type="text" id="message" name="message" class="newsletter-input">
+                    <button class="newsletter-submit-button" onclick="sendEmail()">→</button>
+                </div>
+                <div class="newsletter-contact-info">
+                    <a href="mailto:info@skycab.ge" class="newsletter-contact-link">
+                        <i class="fas fa-envelope" style="margin-right: 8px;"></i>info@skycab.ge</a>
+                    <span><i class="fas fa-phone" style="margin-right: 8px;"></i>+995577056966</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="contact-wrapper" id="contact">
+        <div class="contact-column first">
+            <div class="centered-text">
+              <h2 class="multi-line-title">
+                <span>შემოგვიერთდი</span>
+                <span>სიახლეებისთვის</span>
+              </h2>
+              <p class="small-text">დარჩი კავშირზე!</p>
+            </div>
+          </div>
+        <div class="contact-column">
+          <form class="contact-form">
+            <div class="input-group">
+                <input type="text" class="input-field" placeholder="სახელი">
+            </div>
+      
+            <div class="input-group">
+                <input type="email" class="input-field" placeholder="ელ - ფოსტა">
+                <span class="arrow-icon" onclick="sendEmail()">&#x2192;</span>
+            </div>
+      
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    <span style="font-size: 24px;">Info@skycab.ge</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                    </svg>
+                    <span style="font-size: 20px;">+995577056966</span>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <footer class="w-full bg-gray-900 text-gray-300 py-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row px-8">
+          <!-- პირველი სვეტი -->
+           
+          <div class="flex flex-col items-center justify-center w-full md:w-1/3 mb-10 md:mb-0">
+            <img src="images/skycabwings.png" alt="Logo" class="w-56 h-56 object-contain" />
+          </div>
+      
+          <!-- მეორე სვეტი -->
+          <div class="flex flex-col w-full md:w-1/3 mb-10 md:mb-0 pl-16" style="font-family: 'alkroundedmtav-medium', sans-serif;">
+            <h2 class="text-xl font-semibold mb-4">სერვისები</h2>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white transition">საჰაერო სასწრაფო დახმარება</a></li>
+              <li><a href="#" class="hover:text-white transition">ისწავლეთ ფრენა</a></li>
+              <li><a href="#" class="hover:text-white transition">საჰაერო სამუშაოები</a></li>
+              <li><a href="#" class="hover:text-white transition">შენი საჰაერო ხომალდი</a></li>
+              <li><a href="#" class="hover:text-white transition">საავიაციო კონსულტაცია</a></li>
+            </ul>
+          </div>
+      
+          <!-- მესამე სვეტი -->
+          <div class="relative flex flex-col w-full md:w-1/3  pl-16" style="font-family: 'alkroundedmtav-medium', sans-serif;">
+            <h2 class="text-xl font-semibold mb-4">კომპანია</h2>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white transition">ჩვენს შესახებ</a></li>
+              <li><a href="#" class="hover:text-white transition">კონტაქტი</a></li>
+            </ul>
+      
+            <!-- სოციალური ქსელების აიქონები -->
+            <div class="flex space-x-6 mt-6 self-end">
+                <a href="#" class="text-gray-300 hover:text-white text-xl transition transform hover:scale-125">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-white text-xl transition transform hover:scale-125">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="text-gray-300 hover:text-white text-xl transition transform hover:scale-125">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+          </div>
+        </div>
+      </footer>
+
+    <script src="/js/languagechanger.js"></script>
+    <script>
+        const images = [
+            "images/X2.jpg",
+            "images/brm.jpg",
+            "images/magni.jpg",
+            "images/ch77.jpg",
+            "images/RV10.jpg",
+            "images/sharkupdated.jpg",
+            "images/argonupdated.jpg",
+        ];
+
+        let currentImageIndex = 0;
+
+        function changeBackgroundImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            const header = document.getElementById('slider-header');
+            header.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+        }
+        setInterval(changeBackgroundImage, 2500);
+
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            hamburger.classList.toggle('active');
+        });
+        // Optional: ყოველ მენიუს ლინკზე დაკლიკებისას დახუროს მობაილ-მენიუ
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                hamburger.classList.toggle('active');
+            });
+        });
+
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50, // Scroll with a little offset from top
+                    behavior: 'smooth',
+                });
+            });
+        });
+
+        // JavaScript for scrolling effect on the menu
+        window.onscroll = function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black', 'shadow-lg', 'bg-red-900'); // Change background and shadow on scroll
+            } else {
+                navbar.classList.remove('bg-black', 'shadow-lg', 'bg-red-900'); // Reset to original state
+            }
+        };
+
+        // Smooth scroll to section on click
+        const scrollLinks = document.querySelectorAll('.scroll-link');
+        scrollLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
