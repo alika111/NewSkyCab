@@ -152,7 +152,13 @@
   order: -1;
 }
 
+.bottom-image {
+  display: flex;
+  flex-direction: column;
+}
+
 .bottom-image img {
+  margin-top: auto;
   border-radius: 0 0 12px 12px;
 }
 .section-title {
